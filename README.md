@@ -9,7 +9,7 @@ Prérequis
 - [Composer](https://getcomposer.org/)
 - [Symfony CLI](https://symfony.com/download) (recommandé)
 
-La base de données par défaut est un fichier SQLite. Aucun serveur MySQL n'est nécessaire.
+La base de données par défaut est un fichier SQLite.
 
 Récupérer le projet
 
@@ -19,17 +19,6 @@ composer install
 
 Dupliquer .env en .env.local. Le fichier .env contient déjà une base SQLite :
 
-DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
-
-Pour utiliser MySQL ou PostgreSQL à la place, modifier DATABASE_URL dans .env.local (des exemples sont commentés dans .env).
-
-Créer la base, les tables, puis les données de démonstration :
-
-php bin/console doctrine:database:create
-php bin/console doctrine:schema:create
-php bin/console doctrine:fixtures:load --no-interaction
-
-Il n'y a pas de migrations. doctrine:schema:create crée les tables à partir des entités.
 
 Lancer le site
 
