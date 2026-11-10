@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Maison Boréal
 
 Boutique en ligne de thés et d'infusions, réalisée avec Symfony.
@@ -64,3 +65,6 @@ Le menu change selon le visiteur, le client, l'admin et le super admin. ROLE_SUP
 Langues
 
 L'interface est en français et en anglais. Le choix se fait avec les liens FR et EN du menu.
+=======
+# exercice-e-commerce-Symfony-
+>>>>>>> d3755c63faf585e8b9df93a7af183ddccdda94f6
