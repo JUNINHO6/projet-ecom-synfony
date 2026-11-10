@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'cart.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'cart.title'|trans }}</h1>
+
+    {% if panier is null or panier.contenus is empty %}
+        <p>{{ 'cart.empty'|trans }}</p>
+    {% else %}
+        {% include '_lignes_panier.html.twig' with {panier: panier, avecSuppression: true} %}
+        <form method="post" action="{{ path('app_panier_buy') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ panier.id) }}">
+            <button type="submit" class="btn">{{ 'cart.buy'|trans }}</button>
+        </form>
+    {% endif %}
+{% endblock %}

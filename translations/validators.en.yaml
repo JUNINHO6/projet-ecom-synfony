@@ -1,0 +1,9 @@
+email.unique: This email address is already used.
+password.mismatch: The two passwords do not match.
+This value should not be blank.: This field should not be blank.
+This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.: This value is too short.
+This value is not a valid email address.: This is not a valid email address.
+This value should be positive.: This value should be positive.
+This value should be either positive or zero.: This value should be positive or zero.
+The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.: The image file is not valid.
+The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.: The file is too large.

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.unpaid_title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'admin.unpaid_title'|trans }}</h1>
+
+    {% if paniers is empty %}
+        <p>{{ 'admin.unpaid_empty'|trans }}</p>
+    {% else %}
+        {% for panier in paniers %}
+            <section class="box">
+                <p><strong>{{ 'admin.cart_id'|trans }}</strong> : #{{ panier.id }}</p>
+                <p><strong>{{ 'admin.owner'|trans }}</strong> : {{ panier.utilisateur.nomComplet }} ({{ panier.utilisateur.email }})</p>
+                <p><strong>{{ 'admin.content'|trans }}</strong></p>
+                {% if panier.contenus is empty %}
+                    <p>{{ 'cart.empty'|trans }}</p>
+                {% else %}
+                    {% include '_lignes_panier.html.twig' with {panier: panier, avecSuppression: false} %}
+                {% endif %}
+            </section>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

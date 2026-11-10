@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'home.title'|trans }} — {{ 'site.name'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'home.title'|trans }}</h1>
+
+    {% if produits is empty %}
+        <p>{{ 'home.empty'|trans }}</p>
+    {% else %}
+        <div class="grid">
+            {% for produit in produits %}
+                <a class="card" href="{{ path('app_produit_show', {id: produit.id}) }}">
+                    {% if produit.photo %}
+                        <img src="{{ asset('uploads/produits/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+                    {% else %}
+                        <div class="placeholder">{{ produit.nom|first }}</div>
+                    {% endif %}
+                    <h2>{{ produit.nom }}</h2>
+                    <p class="price">{{ produit.prix|format_currency('EUR', locale=app.request.locale) }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if is_granted('ROLE_ADMIN') and form %}
+        <section class="box">
+            <h2>{{ 'home.add_product'|trans }}</h2>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn">{{ 'product.create'|trans }}</button>
+            {{ form_end(form) }}
+        </section>
+    {% endif %}
+{% endblock %}

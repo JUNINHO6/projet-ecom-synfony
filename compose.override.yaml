@@ -1,0 +1,6 @@
+
+services:
+  database:
+    ports:
+      - "5432"
+

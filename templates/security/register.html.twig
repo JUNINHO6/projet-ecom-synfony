@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'register.title'|trans }}</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn">{{ 'register.submit'|trans }}</button>
+    {{ form_end(form) }}
+    <p><a href="{{ path('app_login') }}">{{ 'register.has_account'|trans }}</a></p>
+{% endblock %}

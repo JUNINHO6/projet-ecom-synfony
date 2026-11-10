@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'login.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'login.title'|trans }}</h1>
+
+    {% if error %}
+        <div class="flash flash-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form method="post" class="box">
+        <label>{{ 'login.email'|trans }}
+            <input type="email" name="_username" value="{{ last_username }}" required>
+        </label>
+        <label>{{ 'login.password'|trans }}
+            <input type="password" name="_password" required>
+        </label>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button type="submit" class="btn">{{ 'login.submit'|trans }}</button>
+    </form>
+    <p><a href="{{ path('app_register') }}">{{ 'login.no_account'|trans }}</a></p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'error.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'error.title'|trans }}</h1>
+    <p>{{ 'error.500'|trans }}</p>
+    <p><a href="{{ path('app_home') }}">{{ 'error.home'|trans }}</a></p>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'account.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'account.title'|trans }}</h1>
+
+    <section class="box">
+        <h2>{{ 'account.profile'|trans }}</h2>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn">{{ 'account.save'|trans }}</button>
+        {{ form_end(form) }}
+    </section>
+
+    <section class="box">
+        <h2>{{ 'account.history'|trans }}</h2>
+        {% if commandes is empty %}
+            <p>{{ 'account.no_orders'|trans }}</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ 'account.order_id'|trans }}</th>
+                        <th>{{ 'account.order_amount'|trans }}</th>
+                        <th>{{ 'account.order_date'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for commande in commandes %}
+                        <tr>
+                            <td>#{{ commande.id }}</td>
+                            <td>{{ commande.montantTotal|format_currency('EUR', locale=app.request.locale) }}</td>
+                            <td>{{ commande.dateAchat|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                            <td><a href="{{ path('app_commande_show', {id: commande.id}) }}">{{ 'account.see_order'|trans }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </section>
+{% endblock %}

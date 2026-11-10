@@ -1,0 +1,114 @@
+site:
+    name: Maison Boréal
+    tagline: Thés et infusions d'exception
+
+nav:
+    home: Accueil
+    cart: Panier
+    account: Mon compte
+    login: Connexion
+    register: Inscription
+    logout: Déconnexion
+    unpaid_carts: Paniers non payés
+    today_users: Inscriptions du jour
+
+home:
+    title: Nos thés
+    empty: Aucun produit pour le moment.
+    add_product: Ajouter un produit
+
+product:
+    name: Nom
+    description: Description
+    price: Prix
+    stock: Stock
+    photo: Photo
+    details: Fiche produit
+    add_to_cart: Ajouter au panier
+    login_to_buy: Connectez-vous pour ajouter ce produit au panier.
+    out_of_stock: Rupture de stock
+    edit: Modifier
+    delete: Supprimer
+    save: Enregistrer
+    create: Créer le produit
+    back: Retour à la boutique
+
+cart:
+    title: Mon panier
+    empty: Votre panier est vide.
+    product: Produit
+    quantity: Quantité
+    price: Prix
+    line_total: Montant
+    total: Total
+    remove: Supprimer
+    buy: Acheter le panier
+    order_date: Date de la commande
+    order_content: Contenu de la commande
+
+account:
+    title: Mon compte
+    profile: Modifier mon profil
+    lastname: Nom
+    firstname: Prénom
+    email: Email
+    password: Mot de passe
+    password_confirm: Confirmation du mot de passe
+    password_new: Nouveau mot de passe (laisser vide pour ne pas changer)
+    save: Enregistrer
+    history: Historique des commandes
+    no_orders: Vous n'avez pas encore de commande.
+    order_id: Identifiant
+    order_amount: Montant
+    order_date: Date
+    see_order: Voir
+
+login:
+    title: Connexion
+    email: Email
+    password: Mot de passe
+    submit: Se connecter
+    no_account: Pas encore de compte ?
+
+register:
+    title: Inscription
+    submit: Créer mon compte
+    has_account: Déjà inscrit ?
+
+admin:
+    unpaid_title: Paniers non achetés
+    unpaid_empty: Aucun panier en cours.
+    cart_id: Numéro du panier
+    owner: Utilisateur
+    content: Contenu
+    users_today: Utilisateurs inscrits aujourd'hui
+    users_empty: Aucune inscription aujourd'hui.
+    registered_at: Heure d'inscription
+    roles: Rôles
+
+flash:
+    product.created: Le produit a été ajouté.
+    product.updated: Le produit a été modifié.
+    product.deleted: Le produit a été supprimé.
+    product.error: L'action sur le produit a échoué.
+    cart.added: Le produit a été ajouté au panier.
+    cart.removed: Le produit a été retiré du panier.
+    cart.bought: Paiement fictif réussi. Merci pour votre commande.
+    cart.stock: Stock insuffisant.
+    cart.empty: Le panier est vide.
+    cart.error: L'achat n'a pas pu aboutir.
+    cart.login: Vous devez être connecté pour ajouter un produit au panier.
+    account.updated: Votre profil a été mis à jour.
+    account.error: Le profil n'a pas pu être enregistré.
+    register.success: Compte créé. Vous pouvez vous connecter.
+    register.error: L'inscription a échoué. Vérifiez le formulaire.
+
+error:
+    title: Une erreur est survenue
+    404_title: Page introuvable
+    404: Cette page n'existe pas.
+    403_title: Accès refusé
+    403: Vous n'avez pas le droit d'accéder à cette page.
+    500_title: Erreur serveur
+    500: Un problème technique est survenu.
+    home: Retour à l'accueil

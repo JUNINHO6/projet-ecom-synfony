@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.nom }} — {{ 'site.name'|trans }}{% endblock %}
+
+{% block body %}
+    <article class="product">
+        {% if produit.photo %}
+            <img src="{{ asset('uploads/produits/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+        {% else %}
+            <div class="placeholder big">{{ produit.nom|first }}</div>
+        {% endif %}
+        <div>
+            <h1>{{ produit.nom }}</h1>
+            <p>{{ produit.description }}</p>
+            <p class="price">{{ produit.prix|format_currency('EUR', locale=app.request.locale) }}</p>
+            <p>{{ 'product.stock'|trans }} : {{ produit.stock }}</p>
+
+            {% if app.user %}
+                {% if produit.stock > 0 %}
+                    {{ form_start(formPanier) }}
+                        {{ form_widget(formPanier) }}
+                        <button type="submit" class="btn">{{ 'product.add_to_cart'|trans }}</button>
+                    {{ form_end(formPanier) }}
+                {% else %}
+                    <p>{{ 'product.out_of_stock'|trans }}</p>
+                {% endif %}
+            {% else %}
+                <p><a href="{{ path('app_login') }}">{{ 'product.login_to_buy'|trans }}</a></p>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="actions">
+                    <a class="btn" href="{{ path('app_produit_edit', {id: produit.id}) }}">{{ 'product.edit'|trans }}</a>
+                    <form method="post" action="{{ path('app_produit_delete', {id: produit.id}) }}" onsubmit="return confirm('OK ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+                        <button type="submit" class="btn danger">{{ 'product.delete'|trans }}</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </article>
+{% endblock %}

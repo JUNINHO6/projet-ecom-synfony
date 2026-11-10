@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ 'site.name'|trans }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+<body>
+<header class="top">
+    <a class="brand" href="{{ path('app_home') }}">
+        <strong>{{ 'site.name'|trans }}</strong>
+        <span>{{ 'site.tagline'|trans }}</span>
+    </a>
+    <nav>
+        <a href="{{ path('app_home') }}">{{ 'nav.home'|trans }}</a>
+        {% if app.user %}
+            <a href="{{ path('app_panier') }}">{{ 'nav.cart'|trans }}</a>
+            <a href="{{ path('app_compte') }}">{{ 'nav.account'|trans }}</a>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <a href="{{ path('app_admin_paniers') }}">{{ 'nav.unpaid_carts'|trans }}</a>
+                <a href="{{ path('app_admin_inscrits') }}">{{ 'nav.today_users'|trans }}</a>
+            {% endif %}
+            <a href="{{ path('app_logout') }}">{{ 'nav.logout'|trans }}</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">{{ 'nav.login'|trans }}</a>
+            <a href="{{ path('app_register') }}">{{ 'nav.register'|trans }}</a>
+        {% endif %}
+        <span class="langs">
+            <a href="{{ path('app_locale', {locale: 'fr'}) }}">FR</a>
+            <a href="{{ path('app_locale', {locale: 'en'}) }}">EN</a>
+        </span>
+    </nav>
+</header>
+
+<main class="wrap">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">{{ message|trans }}</div>
+        {% endfor %}
+    {% endfor %}
+    {% block body %}{% endblock %}
+</main>
+</body>
+</html>

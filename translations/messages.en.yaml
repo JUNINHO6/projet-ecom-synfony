@@ -1,0 +1,114 @@
+site:
+    name: Maison Boréal
+    tagline: Exceptional teas and infusions
+
+nav:
+    home: Home
+    cart: Cart
+    account: My account
+    login: Log in
+    register: Sign up
+    logout: Log out
+    unpaid_carts: Unpaid carts
+    today_users: Today's sign-ups
+
+home:
+    title: Our teas
+    empty: No products yet.
+    add_product: Add a product
+
+product:
+    name: Name
+    description: Description
+    price: Price
+    stock: Stock
+    photo: Photo
+    details: Product page
+    add_to_cart: Add to cart
+    login_to_buy: Log in to add this product to your cart.
+    out_of_stock: Out of stock
+    edit: Edit
+    delete: Delete
+    save: Save
+    create: Create product
+    back: Back to the shop
+
+cart:
+    title: My cart
+    empty: Your cart is empty.
+    product: Product
+    quantity: Quantity
+    price: Price
+    line_total: Line total
+    total: Total
+    remove: Remove
+    buy: Buy cart
+    order_date: Order date
+    order_content: Order contents
+
+account:
+    title: My account
+    profile: Edit my profile
+    lastname: Last name
+    firstname: First name
+    email: Email
+    password: Password
+    password_confirm: Confirm password
+    password_new: New password (leave blank to keep the current one)
+    save: Save
+    history: Order history
+    no_orders: You have no orders yet.
+    order_id: Order ID
+    order_amount: Amount
+    order_date: Date
+    see_order: View
+
+login:
+    title: Log in
+    email: Email
+    password: Password
+    submit: Log in
+    no_account: No account yet?
+
+register:
+    title: Sign up
+    submit: Create my account
+    has_account: Already registered?
+
+admin:
+    unpaid_title: Unpaid carts
+    unpaid_empty: No open carts.
+    cart_id: Cart number
+    owner: User
+    content: Contents
+    users_today: Users registered today
+    users_empty: No sign-ups today.
+    registered_at: Registration time
+    roles: Roles
+
+flash:
+    product.created: The product has been added.
+    product.updated: The product has been updated.
+    product.deleted: The product has been deleted.
+    product.error: The product action failed.
+    cart.added: The product was added to your cart.
+    cart.removed: The product was removed from your cart.
+    cart.bought: Fake payment successful. Thank you for your order.
+    cart.stock: Not enough stock.
+    cart.empty: The cart is empty.
+    cart.error: The purchase could not be completed.
+    cart.login: You must be logged in to add a product to the cart.
+    account.updated: Your profile has been updated.
+    account.error: The profile could not be saved.
+    register.success: Account created. You can log in.
+    register.error: Registration failed. Please check the form.
+
+error:
+    title: An error occurred
+    404_title: Page not found
+    404: This page does not exist.
+    403_title: Access denied
+    403: You are not allowed to access this page.
+    500_title: Server error
+    500: A technical problem occurred.
+    home: Back to home

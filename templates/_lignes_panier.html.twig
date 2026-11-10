@@ -1,0 +1,33 @@
+{# même tableau pour le panier et le détail d'une commande #}
+<table>
+    <thead>
+        <tr>
+            <th>{{ 'cart.product'|trans }}</th>
+            <th>{{ 'cart.quantity'|trans }}</th>
+            <th>{{ 'cart.price'|trans }}</th>
+            <th>{{ 'cart.line_total'|trans }}</th>
+            {% if avecSuppression|default(false) %}
+                <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for ligne in panier.contenus %}
+            <tr>
+                <td>{{ ligne.produit.nom }}</td>
+                <td>{{ ligne.quantite }}</td>
+                <td>{{ ligne.produit.prix|format_currency('EUR', locale=app.request.locale) }}</td>
+                <td>{{ ligne.montantLigne|format_currency('EUR', locale=app.request.locale) }}</td>
+                {% if avecSuppression|default(false) %}
+                    <td>
+                        <form method="post" action="{{ path('app_panier_remove', {id: ligne.id}) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token('remove' ~ ligne.id) }}">
+                            <button type="submit" class="btn danger">{{ 'cart.remove'|trans }}</button>
+                        </form>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="total">{{ 'cart.total'|trans }} : {{ panier.montantTotal|format_currency('EUR', locale=app.request.locale) }}</p>

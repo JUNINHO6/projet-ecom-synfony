@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'cart.order_content'|trans }} #{{ panier.id }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'cart.order_content'|trans }} #{{ panier.id }}</h1>
+    <p>{{ 'cart.order_date'|trans }} : {{ panier.dateAchat|format_datetime('medium', 'short', locale=app.request.locale) }}</p>
+    {% include '_lignes_panier.html.twig' with {panier: panier, avecSuppression: false} %}
+    <p><a href="{{ path('app_compte') }}">{{ 'account.title'|trans }}</a></p>
+{% endblock %}
